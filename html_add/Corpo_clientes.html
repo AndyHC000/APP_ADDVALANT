@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Dashboard | Apply - Bootstrap 4 Web Application</title>
+  <meta name="description" content="Responsive, Bootstrap, BS4" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.svg">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.svg">
+
+  <!-- style -->
+
+  <link rel="stylesheet" href="../libs/font-awesome/css/font-awesome.min.css" type="text/css" />
+
+  <!-- build:css ../assets/css/app.min.css -->
+  <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/css/add.css" type="text/css" />
+  <!-- endbuild -->
+</head>
+<body class="white">
+    <div class="app" id="app">
+        <div class="app-content box-shadow-2" id="content" role="main">
+            <!--Header
+            <div class="content-header indigo b-b" id="content-header">
+                <div class="nav navbar-expand-lg">
+                  <div id="pageTitle" class="nav-text nav-title flex">
+
+                    <div class="navbar-brand">
+
+                        <span class="item-title  _500">Add Valant</span>
+                        <span class="text-sm text-muted">Financial Services</span>
+
+
+
+
+                    </div>
+
+                  </div>
+
+                </div>
+            </div>-->
+            <!--Contenedor de contenido-->
+            <div class="content-main white" id="content-main">
+              <div class="padding">
+                <div class="row b-b py-1">
+                  <div class="col-md-6 ">
+                    <h3 class="">
+                      <span class=" _700 text-dark my-2">Empresas</span>
+                    </h3>
+                  </div>
+                  <div class="col-md-6 ">
+                    <div class="d-block my-1 text-align text-right ">
+                      <div class="btn  white  p-2 indigo">+ Nueva empresa</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Contenedor de filtros y busqueda de la tabla-->
+                <div class="py-4">
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <select class="custom-select w-sm d-inline v-middle">
+                        <option value="0">Fecha limite</option>
+                        <option value="1">Federal</option>
+                        <option value="2">Estatal</option>
+                        <option value="3">Estatus</option>
+                      </select>
+                      <button class="btn white">Aplicar filtro</button>
+                    </div>
+                    <div class="col-sm-4">
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+                          <button class="btn white" type="button">Buscar</button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--Contenedor de la tabla-->
+                <div class="table-responsive">
+                  <table class="table table-striped b-t">
+                    <thead>
+                        <th>Obligacion</th>
+                        <th>Forma</th>
+                        <th>Estado</th>
+                        <th>Frecuencia</th>
+                        <th>Fecha inicio</th>
+                        <th>Fecha limite</th>
+                        <th>Extension</th>
+                        <th>Fecha presentacion</th>
+                        <th>Estatus</th>
+                        <th style="width:70px;"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Declaracion anual INC</td>
+                        <td>FORM-1120</td>
+                        <td><span class="badge badge-pill primary text-sm ">Federal</span></td>
+                        <td><span class="badge badge-pill light-green text-white text-sm">Anual</span></td>
+                        <td>31/12/2024</td>
+                        <td>15/042025</td>
+                        <td><span class="badge badge-pill primary text-sm">N/A</span></td>
+                        <td></td>
+                        <td><span class="badge badge-pill primary text-sm">Pendiente</span></td>
+                        <td>
+                          <a href="#" class="active text-sm" data-toggle="modal" data-target="#obl-act"><i>Editar</i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+
+      <!-- build:js scripts/app.min.js -->
+<!-- jQuery -->
+<script src="../libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- core -->
+  <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="../html/scripts/lazyload.config.js"></script>
+  <script src="../html/scripts/lazyload.js"></script>
+  <script src="../html/scripts/plugin.js"></script>
+  <script src="../html/scripts/nav.js"></script>
+  <script src="../html/scripts/scrollto.js"></script>
+  <script src="../html/scripts/toggleclass.js"></script>
+  <script src="../html/scripts/theme.js"></script>
+  <script src="../html/scripts/ajax.js"></script>
+  <script src="../html/scripts/app.js"></script>
+
+
+  <!-- endbuild -->
+	<script src="../libs/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../libs/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="..html/scripts/plugins/datatable.js"></script>
+	<script src="../libs/screenfull/dist/screenfull.js"></script>
+	<script src="..html/scripts/plugins/screenfull.js"></script>
+
+</body>
+</html>

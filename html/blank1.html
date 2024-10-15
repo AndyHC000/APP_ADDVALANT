@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Blank | Apply - Bootstrap 4 Web Application</title>
+  <meta name="description" content="Responsive, Bootstrap, BS4" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.svg">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.svg">
+  
+  <!-- style -->
+
+  <link rel="stylesheet" href="../libs/font-awesome/css/font-awesome.min.css" type="text/css" />
+
+  <!-- build:css ../assets/css/app.min.css -->
+  <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
+  <!-- endbuild -->
+
+  <style type="text/css">
+  	.fixed_header{
+    /*width: 670px;*/
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.fixed_header tbody{
+  display:block;
+  width: 100%;
+  overflow: auto;
+  height: 100px;
+}
+
+.fixed_header thead tr {
+   display: block;
+}
+
+.fixed_header th, .fixed_header td {
+  padding: 5px;
+  /*text-align: left;*/
+  width: 300px;
+
+}
+  </style>
+</head>
+<body>
+
+
+<div class="app" id="app">
+
+<!-- ############ LAYOUT START-->
+
+	<!-- ############ Aside START-->
+	<!-- <div id="aside" class="app-aside fade box-shadow-x nav-expand white" aria-hidden="true">	
+	</div> -->
+	<!-- ############ Aside END-->
+
+	
+	<!-- ############ Content START-->
+	<div id="content" class="app-content box-shadow-0" role="main">
+		<!-- Header -->
+	    
+	    <!-- Main -->
+	<div class="content-main " id="content-main">
+
+<!-- ############ Main START-->
+
+
+<div class="padding" style="padding-top: 0;">
+ 
+	<div class="row">
+		<div class="col-sm ml-1">
+			<div class="box" id="btnEV">
+				<div class="box-header amber">
+					<a class="nav-link">
+					<h4>Entrada visitas</h4>
+					<div class="box-tool">
+						<ul class="nav nav-xs">
+							<li class="nav nav-item">
+								<i class="fa fa-pencil-square-o"></i>
+							</li>
+						</ul>
+					</div>
+					</a>
+				</div>
+			</div>
+		</div>	
+
+		<div class="col-sm ml-1">
+			<div class="box" id="btnSV">
+				<div class="box-header amber">
+					<a class="nav-link">
+					<h4>Salida visitas</h4>
+					<div class="box-tool">
+						<ul class="nav nav-xs">
+							<li class="nav nav-item">
+								<i class="fa fa-pencil-square-o"></i>
+							</li>
+						</ul>
+					</div>
+					</a>
+				</div>
+			</div>
+		</div>	
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="box" id="divEV" style="display: none;">
+				<div class="box-header amber">Entrada visitas
+					<small>...</small>
+				</div>
+				<div class="box-body" id="divBodyEV">
+					
+    				
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="box" id="divSV" style="display: none;">
+				<div class="box-header amber">Salida visitas
+					<small>...</small>
+				</div>
+				<div class="box-body" id="divBodySV">
+					
+    				
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm ml-1">
+			<div class="box" id="btnPR">
+				<div class="box-header primary">
+					<a class="nav-link">
+					<h4>Proveedores</h4>
+					<div class="box-tool">
+						<ul class="nav nav-xs">
+							<li class="nav nav-item">
+								<i class="fa fa-pencil-square-o"></i>
+							</li>
+						</ul>
+					</div>
+					</a>
+				</div>
+			</div>
+		</div>	
+
+		<div class="col-sm ml-1">
+			<div class="box" id="btnVI">
+				<div class="box-header primary">
+					<a class="nav-link">
+					<h4>Visitas</h4>
+					<div class="box-tool">
+						<ul class="nav nav-xs">
+							<li class="nav nav-item">
+								<i class="fa fa-pencil-square-o"></i>
+							</li>
+						</ul>
+					</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm ml-1">
+			<div class="box" id="btnEVE">
+				<div class="box-header primary">
+					<a class="nav-link">
+					<h4>Eventos</h4>
+					<div class="box-tool">
+						<ul class="nav nav-xs">
+							<li class="nav nav-item">
+								<i class="fa fa-pencil-square-o"></i>
+							</li>
+						</ul>
+					</div>
+					</a>
+				</div>
+			</div>
+		</div>	
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="box" id="divPR" style="display: none;">
+				<div class="box-header primary">Proveedores
+					<small>...</small>
+				</div>
+				<div class="box-body" id="divBodyPR">
+					
+    				
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="box" id="divVI" style="display: none;">
+				<div class="box-header primary">Visitas
+					<small>...</small>
+				</div>
+				<div class="box-body" id="divBodyVI">
+					
+    				
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="box" id="divEVE" style="display: none;">
+				<div class="box-header primary">Eventos
+					<small>...</small>
+				</div>
+				<div class="box-body" id="divBodyEVE">
+					
+    				
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm ml-1">
+			<div class="box" id="btnPS">
+				<div class="box-header indigo">
+					<a class="nav-link">
+					<h4>Personal de seguridad</h4>
+					<div class="box-tool">
+						<ul class="nav nav-xs">
+							<li class="nav nav-item">
+								<i class="fa fa-pencil-square-o"></i>
+							</li>
+						</ul>
+					</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm ml-1">
+			<div class="box" id="btnImprimirQR">
+				<div class="box-header indigo">
+					<a class="nav-link">
+					<h4>Imprimir QR</h4>
+					<div class="box-tool">
+						<ul class="nav nav-xs">
+							<li class="nav nav-item">
+								<i class="fa fa-pencil-square-o"></i>
+							</li>
+						</ul>
+					</div>
+					</a>
+				</div>
+			</div>
+		</div>		
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="box" id="divPS" style="display: none;">
+				<div class="box-header indigo">Personal de seguridad
+					<small>...</small>
+				</div>
+				<div class="box-body" id="divBodyPS">
+					
+    				
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="box" id="divImprimirQR" style="display: none;">
+				<div class="box-header indigo">Imprimir QR
+					<small>...</small>
+				</div>
+				<div class="box-body" id="divBodyImprimirQR">
+					
+    				
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div> <!-- end padding -->
+
+<!-- ############ Main END-->
+</div>
+	    <!-- Footer -->
+	    <!-- <div class="content-footer white " id="content-footer">
+	    	<div class="d-flex p-3">
+	    		<span class="text-sm text-muted flex">&copy; Copyright. Flatfull</span>
+	    		<div class="text-sm text-muted">Version 1.1.0</div>
+	    	</div>
+	    </div> -->
+</div>
+	<!-- ############ Content END-->
+
+<!-- ############ LAYOUT END-->
+</div>
+
+<!-- <div class="container">
+     <div class="modal fade" id="modalCC" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <h4 class="modal-title">Escanear codigo QR ...</h4>
+                    <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form>
+                                
+                            <div class="form-group input-group divQR2">
+                                <span class="input-group-addon" id="spanQR">QR:</span>
+                                <input type="Password" style="width:250px;" class="form-control" id="txtQR" name="QR" autofocus="true">
+                            </div>
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btnOK">ok</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div> -->
+
+
+<!-- build:js scripts/app.min.js -->
+<!-- jQuery -->
+  <script src="../libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- core -->
+  <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/ajax.js"></script>
+  <script src="scripts/app.js"></script>
+  
+  <!-- <script src="scripts/b64.js"></script> -->
+  <script src="scripts/uv_qr.js"></script>
+  
+<!-- endbuild -->
+
+<script>
+	$(document).ready(function(){
+		$("#btnPS").on("click", function(){
+			$("#divImprimirQR").hide();
+			$("#divPS").slideToggle(500);
+
+			$.ajax({
+    			type: "GET",
+    			url: "http://losencinos.miresidencial.net/adminResidencial_consulta_elementos_seguridad.html"
+    			}).done(function(datos){
+					$("#divBodyPS").html(datos);
+				});
+		});
+
+		$("#btnImprimirQR").on("click", function(){
+			$("#divPS").hide();
+			$("#divImprimirQR").slideToggle(500);	
+		});
+
+		$("#btnEV").on("click", function(){
+			$("#divSV").hide();
+			$("#divEV").slideToggle(500);	
+		});
+
+		$("#btnSV").on("click", function(){
+			$("#divEV").hide();
+			$("#divSV").slideToggle(500);	
+		});
+
+		$("#btnPR").on("click", function(){
+			$("#divEVE,#divVI").hide();
+			$("#divPR").slideToggle(500);	
+		});
+
+		$("#btnVI").on("click", function(){
+			$("#divEVE,#divPR").hide();
+			$("#divVI").slideToggle(500);	
+		});
+
+		$("#btnEVE").on("click", function(){
+			$("#divPR,#divVI").hide();
+			$("#divEVE").slideToggle(500);	
+		});
+
+
+
+
+		
+		// $("#btnCC").on("click", function(){
+		// 	$("#divES,#divPL,#divAS,#divCCQR").hide();
+		// 	$("#divCC").slideToggle(1000);
+		// 	$.ajax({
+  //   			type: "GET",
+  //   			url: "http://losencinos.miresidencial.net/datatable.html"
+  //   			// url: "http://localhost/applySICHERTECH/html/datatable.html"
+  //   			}).done(function(datos){
+		// 			$("#divbodyCC").html(datos);
+		// 		});
+		// });
+		
+
+	});
+</script>
+</body>
+</html>

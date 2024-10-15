@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Datatable | Apply - Bootstrap 4 Web Application</title>
+  <meta name="description" content="Responsive, Bootstrap, BS4" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.svg">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.svg">
+  
+  <!-- style -->
+
+  <link rel="stylesheet" href="../libs/font-awesome/css/font-awesome.min.css" type="text/css" />
+
+  <!-- build:css ../assets/css/app.min.css -->
+  <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
+  <!-- endbuild -->
+</head>
+<body>
+
+
+<div class="app" id="app">
+
+<!-- ############ LAYOUT START-->
+
+	
+
+	<!-- ############ Content START-->
+	<!-- <div id="content" class="app-content box-shadow-0" role="main">
+	
+	    <div class="content-header white  box-shadow-0" id="content-header">
+	    	<div class="navbar navbar-expand-lg">
+	    	  
+	    	  <a class="d-lg-none mx-2" data-toggle="modal" data-target="#aside">
+	    	    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path d="M80 304h352v16H80zM80 248h352v16H80zM80 192h352v16H80z"/></svg>
+	    	  </a>
+	    	 
+	    	 
+	    	
+	    	  
+	    	    <li>
+	    	    	<a href="#"><span class="avatar w-32 circle red spanCC">QR</span></a>
+	    	    </li>
+	    	   
+	    	
+	    	  
+	    	    
+	    	
+	    	  
+	    	
+	    	</div>
+	    </div> -->
+	    <!-- Main -->
+<div class="content-main " id="content-main">
+
+<!-- ############ Main START-->
+
+
+<div class="padding">
+  <div class="table-responsive">
+    <table id="datatable" class="table v-middle p-0 m-0 box" data-plugin="dataTable">
+      <thead>
+          <tr>
+          	  <!--<th>ID</th>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Extn.</th>
+               <th>Start date</th>
+              <th>QR</th> -->
+              <th>id</th>
+              <th>Nombre</th>
+              <th>AP</th>
+              <th>AM</th>
+              <th>Email</th>
+              <th></th>
+          </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+
+
+<!-- ############ LAYOUT END-->
+</div>
+
+
+
+
+<div class="container" id="divQR1">
+    <!-- <a class="btn btn-primary btn-lg" data-toggle="modal" id="btnAbrirModal">boton</a> -->
+    <!-- div que obscurece la pantalla -->
+    <div class="modal fade" id="idModalQR" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <!--<h4 class="modal-title">Datos de la persona</h4>
+                    <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form id="frmModal">
+                                <input hidden="true" type="text" class="form-control" id="eidPersona" name="idpersona">
+                            <div class="form-group input-group divQR">
+                                
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon" id="modalName"></span>
+                                <!-- <input type="text" style="width:250px;" class="form-control" id="modalName" name="name"> -->
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon" id="modalPosition"></span>
+                                <!--<input type="text" style="width:250px;" class="form-control" id="modalPosition" name="position"> -->
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary btnImprimirQR">Imprimir</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- <div class="container">
+    <div class="modal fade" id="modalCC" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <h4 class="modal-title">Escanear codigo QR ...</h4>
+                    <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form>
+                                
+                            <div class="form-group input-group divQR2">
+                                <span class="input-group-addon" id="spanQR">QR:</span>
+                                <input type="Password" style="width:250px;" class="form-control" id="txtQR" name="QR" autofocus="true">
+                            </div>
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btnOK">ok</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div> -->
+
+<!-- build:js scripts/app.min.js -->
+<!-- jQuery -->
+  <script src="../libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- core -->
+  <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/ajax.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/md5.js"></script>
+  <script src="scripts/jquery-qrcode-0.15.0.js"></script>
+  <script src="scripts/jquery-qrcode-0.15.0.min.js"></script>
+  <!-- <script src="scripts/b64.js"></script> -->
+  <script src="scripts/uv_qr.js"></script>
+   <script src="scripts/printThis.js"></script>
+<!-- endbuild -->
+</body>
+</html>

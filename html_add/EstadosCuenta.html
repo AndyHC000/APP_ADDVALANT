@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Dashboard | Apply - Bootstrap 4 Web Application</title>
+  <meta name="description" content="Responsive, Bootstrap, BS4" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.svg">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.svg">
+
+  <!-- style -->
+
+  <link rel="stylesheet" href="../libs/font-awesome/css/font-awesome.min.css" type="text/css" />
+
+  <!-- build:css ../assets/css/app.min.css -->
+  <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/css/add.css" type="text/css" />
+  <!-- endbuild -->
+</head>
+<body >
+  <div class="app" id="app">
+    <div class="app-content box-shadow-2" id="content" role="main">
+      <!--Header-->
+      <div class="content-header indigo b-b" id="content-header">
+        <div class="nav navbar-expand-lg">
+          <div id="pageTitle" class="nav-text nav-title flex">
+          
+            <div class="navbar-brand">
+
+                <span class="item-title  _500">Add Valant</span>
+                <span class="text-sm text-muted">Financial Services</span>
+               
+
+
+            </div>
+            
+          </div>
+
+        </div>
+      </div>
+
+
+      <!--Contenedor de Contenido-->
+      <div class="content-main" id="content-main">
+        <!--Contenedor de informacion empresa-->
+        <div class="white">
+          <!--Contenedor superior-->
+          <div class="p-4 p-md-5">
+            <div class="row">
+              <!--Contenedor de titulo "Nombre de la empresa"-->
+              <div class="col-md-8">
+                <h1 class="display-4 l-s-n-1x">
+                  <span class=" _700">Menendez and Murrle Enterprise LLC</span>
+                </h1>
+                <div>
+                  <h5>
+                    <span class="text-blue">Empresa Comercial</span>
+                  </h5>
+                </div>
+              </div>
+              <!--Contenedor de btn "Editar perfil"-->
+              <div class="col-md-4">
+                <div class="d-block my-3 text-align text-center">
+                  <div class="btn btn-rounded white px-lg-5 p-2">Editar perfil</div>
+                </div>
+              </div>
+            </div>
+      
+          </div>
+          <!--Contenedor barra nav-->
+          <div class="nav-active-border  px-4 px-md-5">
+            <ul class="nav">
+              <li class="nav-item ">
+                <a class="nav-link" href="PruebaAppAdd.html">
+                  Informacion
+                </a>
+              </li>
+              <li class="nav-item "></li>
+                <a class="nav-link " href="Impuestos.html">
+                  Impuestos
+                </a>
+              </li>
+              <li class="nav-item"></li>
+                <a class="nav-link" href="Obligaciones.html">
+                  Obligaciones
+                </a>
+              </li>
+              <li class="nav-item"></li>
+                <a class="nav-link active" href="EstadosCuenta.html">
+                  Estados de cuenta
+                </a>
+              </li>
+            </ul>
+      
+          </div>
+        </div>
+
+
+        <!--Contenido-->
+        <div class="padding">
+
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Estados de cuenta</h3>
+                </div>
+                <div class="box-body">
+                  <!--Lista de contenedores por mes de estados de cuenta-->
+                  <div class="mb-3">
+                    <ul class="nav flex-column nav-pills" data-nav>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle success avatar"><span class="fa fa-check"></span></span>
+                            </div>
+                            <div class="list-body b-b">
+                              <div class="item-title _500">Enero</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm success">Recibido</span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column ">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                  <tr>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>PNC Bank</td>
+                                    <td>1234568</td>
+                                    <td>31/12/2024</td>
+                                    <td><span class="badge badge-pill success text-sm">No</span></td>
+                                    <td></td>
+                                    <td>
+                                      <a href="#" class="active text-sm" data-toggle="modal" data-target="#m"><i>Editar</i></a>
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle success avatar"><span class="fa fa-check"></span></span>
+                            </div>
+                            <div class="list-body b-b">
+                              <div class="item-title _500">Febrero</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm success">Recibido</span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                  <tr>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>PNC Bank</td>
+                                    <td>1234568</td>
+                                    <td>31/12/2024</td>
+                                    <td><span class="badge badge-pill success text-sm">No</span></td>
+                                    <td></td>
+                                    <td>
+                                      <a href="#" class="active text-sm" data-toggle-class=""data-toggle="modal" data-target="#m"><i>Editar</i></a>
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle success avatar"><span class="fa fa-check"></span></span>
+                            </div>
+                            <div class="list-body b-b">
+                              <div class="item-title _500">Marzo</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm success">Recibido</span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>PNC Bank</td>
+                                    <td>1234568</td>
+                                    <td>31/12/2024</td>
+                                    <td><span class="badge badge-pill success text-sm">No</span></td>
+                                    <td></td>
+                                    <td>
+                                      <a href="#" class="active text-sm" data-toggle-class=""><i>Editar</i></a>
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle success avatar"><span class="fa fa-check"></span></span>
+                            </div>
+                            <div class="list-body b-b">
+                              <div class="item-title _500">Abril</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm success">Recibido</span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>PNC Bank</td>
+                                    <td>1234568</td>
+                                    <td>31/12/2024</td>
+                                    <td><span class="badge badge-pill success text-sm">No</span></td>
+                                    <td></td>
+                                    <td>
+                                      <a href="#" class="active text-sm" data-toggle-class=""><i>Editar</i></a>
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle success avatar"><span class="fa fa-check"></span></span>
+                            </div>
+                            <div class="list-body b-b">
+                              <div class="item-title _500">Mayo</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm success">Recibido</span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>PNC Bank</td>
+                                    <td>1234568</td>
+                                    <td>31/12/2024</td>
+                                    <td><span class="badge badge-pill success text-sm">No</span></td>
+                                    <td></td>
+                                    <td>
+                                      <a href="#" class="active text-sm" data-toggle-class=""><i>Editar</i></a>
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle success avatar"><span class="fa fa-check"></span></span>
+                            </div>
+                            <div class="list-body b-b">
+                              <div class="item-title _500">Junio</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm success">Recibido</span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>PNC Bank</td>
+                                    <td>1234568</td>
+                                    <td>31/12/2024</td>
+                                    <td><span class="badge badge-pill success text-sm">No</span></td>
+                                    <td></td>
+                                    <td>
+                                      <a href="#" class="active text-sm" data-toggle-class=""><i>Editar</i></a>
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle success avatar"><span class="fa fa-check"></span></span>
+                            </div>
+                            <div class="list-body b-b">
+                              <div class="item-title _500">Julio</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm success">Recibido</span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>PNC Bank</td>
+                                    <td>1234568</td>
+                                    <td>31/12/2024</td>
+                                    <td><span class="badge badge-pill success text-sm">No</span></td>
+                                    <td></td>
+                                    <td>
+                                      <a href="#" class="active text-sm" data-toggle-class=""><i>Editar</i></a>
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle success avatar"><span class="fa fa-check"></span></span>
+                            </div>
+                            <div class="list-body b-b">
+                              <div class="item-title _500">Julio</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm success">Recibido</span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>PNC Bank</td>
+                                    <td>1234568</td>
+                                    <td>31/12/2024</td>
+                                    <td><span class="badge badge-pill success text-sm">No</span></td>
+                                    <td></td>
+                                    <td>
+                                      <a href="#" class="active text-sm" data-toggle-class=""><i>Editar</i></a>
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle success avatar"><span class="fa fa-check"></span></span>
+                            </div>
+                            <div class="list-body b-b">
+                              <div class="item-title _500">Agosto</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm success">Recibido</span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>PNC Bank</td>
+                                    <td>1234568</td>
+                                    <td>31/12/2024</td>
+                                    <td><span class="badge badge-pill success text-sm">No</span></td>
+                                    <td></td>
+                                    <td>
+                                      <a href="#" class="active text-sm" data-toggle-class=""><i>Editar</i></a>
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle amber avatar"><span class="fa fa-warning text-white"></span></span>
+                            </div>
+                            <div class="list-body b-b">
+                              <div class="item-title _500">Septiembre</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm amber text-white">Pendiente</span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>PNC Bank</td>
+                                    <td>1234568</td>
+                                    <td></td>
+                                    <td><span class="badge badge-pill success text-sm"></span></td>
+                                    <td></td>
+                                    <td>
+                                      <a href="#" class="active text-sm" data-toggle-class=""><i>Editar</i></a>
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle grey avatar"><span class="fa fa-minus"></span></span>
+                            </div>
+                            <div class="list-body b-b ">
+                              <div class="item-title _500">Octubre</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm success"></span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle grey avatar"><span class="fa fa-minus"></span></span>
+                            </div>
+                            <div class="list-body b-b">
+                              <div class="item-title _500">Noviembre</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm success"></span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <!--Contenedor de estados de cuenta por mes-->
+                        <a>
+                          <div class="list-item" data-id="CuentaB">
+                            <div>
+                              <span class="w-40 circle grey avatar"><span class="fa fa-minus"></span></span>
+                            </div>
+                            <div class="list-body b-b">
+                              <div class="item-title _500">Diciembre</div>
+                              <div class="item-except text-muted h-1x">Estatus: </div>
+                            </div>
+                            <div >
+                              <span class="badge badge-pill primary text-sm success"></span>
+                            </div>
+                          </div>
+                        </a>
+                        <!--Sub tabla de estados de cuenta por banco-->
+                        <ul class="nav nav-sub text-sm flex-column">
+                          <li class="nav-item">
+                            <div class="table-responsive">
+                              <table class="table table-striped b-t">
+                                <thead>
+                                    <th>Banco</th>
+                                    <th># Cuenta</th>
+                                    <th>Fecha de recepcion</th>
+                                    <th>Movimientos pendientes</th>
+                                    <th>Comentarios</th>
+                                    <th style="width:70px;"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+    
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+    
+          <!--Modal de formulario para actualizar estatus estados de cuenta-->
+          <div id="m" class="modal " data-backdrop="true" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog ">
+              <div class="modal-content">
+                <div class="modal-header indigo">
+                  <div class="list-item " data-id="CuentaB">
+                    <div>
+                      <span class="w-40 circle white avatar"><span class="fa fa-dollar text-accent"></span></span>
+                    </div>
+                    <div class="list-body ">
+                      <div class=" _400"><h3>Estado de cuenta</h3></div>
+                      <span class="item-except text-muted ">Actualiza el estatus de la solicitud del estado de cuenta</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-body text-center p-lg ">
+                  <div class="padding">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <form data-plugin="parsley" data-option="{}" novalidate>
+                          <div class="box ">
+                        
+                            <div class="box-body text-left">
+                              <div class="row">
+                                <div class="col-sm-6 ">
+                                  <ul class="list-group box indigo">
+                                    <li class="list-group-item">
+                                      <span class="_500 d-block">Banco</span>
+                                      <span class="text-muted">PNC Bank</span>
+                                    </li>
+                                  </ul>
+                                  
+                                </div>
+                                <div class="col-sm-6">
+                                  <ul class="list-group box indigo">
+                                    <li class="list-group-item">
+                                      <span class="_500 d-block"># Cuenta</span>
+                                      <span class="text-muted">123546789</span>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+    
+                              <div class="form-row">
+                                <div class="form-group col-sm-6">
+                                  <label>Fecha recepcion</label>
+                                  <input type="date" class="form-control " required="" data-parsley-id="5">  
+                                </div>
+                                
+                                <div class="form-group col-sm-6">
+                                  <label>Movimientos pendientes</label>
+                                  <select id="select2-data" required="" class="form-control   select2-hidden-accessible">
+                                    <option value=""></option>
+                                    <option value="foo">Si</option>
+                                    <option value="bar">No</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Comentarios</label>
+                                <textarea class="form-control " rows="6" data-minwords="6" required="" placeholder="Type your message" data-parsley-id="26"></textarea>                          
+                              </div>
+                              <div class="text-right">
+                                <button type="submit" class="btn primary">Submit</button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div><!-- /.modal-content -->
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- build:js scripts/app.min.js -->
+<!-- jQuery -->
+  <script src="../libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- core -->
+  <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="../html//scripts/lazyload.config.js"></script>
+  <script src="../html//scripts/lazyload.js"></script>
+  <script src="../html/scripts/plugin.js"></script>
+  <script src="../html/scripts/nav.js"></script>
+  <script src="../html/scripts/scrollto.js"></script>
+  <script src="../html/scripts/toggleclass.js"></script>
+  <script src="../html/scripts/theme.js"></script>
+  <script src="../html/scripts/ajax.js"></script>
+  <script src="../html/scripts/app.js"></script>
+</body>
+</html>

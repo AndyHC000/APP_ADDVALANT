@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Blank | Apply - Bootstrap 4 Web Application</title>
+  <meta name="description" content="Responsive, Bootstrap, BS4" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.svg">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.svg">
+  
+  <!-- style -->
+
+  <link rel="stylesheet" href="../libs/font-awesome/css/font-awesome.min.css" type="text/css" />
+
+  <!-- build:css ../assets/css/app.min.css -->
+  <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
+  <!-- endbuild -->
+
+
+<!-- .modal -->
+        <div id="m" class="modal fade" data-backdrop="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Lista de invitados</h5>
+              </div>
+              <div class="modal-body  p-lg">
+			    <table class="table table-hover b-t" id="tblInvitados">
+				    <thead>
+					    <tr><th>Nombre</th><th>Placa</th><th>&nbsp;</th></tr>
+				    </thead>
+				    <tbody>
+
+				    </tbody>
+			    </table>
+              </div>
+              <div class="modal-footer">
+               <!-- <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>-->
+                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div>
+        </div>
+        <!-- / .modal -->
+        <!-- .modal -->
+        <div id="mOdMarcarEntrada" class="modal fade" data-backdrop="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Registrar Entrada <span id="nomAccess"></span></h5>
+              </div>
+              <div class="modal-body  p-lg">
+                 <div class="form-group row">
+
+                  <div class="col-sm-10">
+                    <input class="form-control form-control-lg" type="text" id="txtPlacasRegEntra" name="txtPlacasRegEntra" placeholder="Escriba la placa">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer" id="divButtons">
+               <button type="button" class="btn success p-x-md" data-dismiss="modal" id="btnRegistrarEntrada">Abrir Barrera y Registrar</button>
+                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Cancelar</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div>
+        </div>
+        <!-- / .modal -->
+<div class="padding">
+   <!-- <div class="row">
+
+    <div class="col-6 col-lg-6" id="divAlerta">
+      <div class="box p-3 ">
+        <div class="py-3 text-center text-lg text-danger"> Alerta Seguridad </div>
+        <div class="d-flex" id="divTextAlerta"> </div>
+      </div>
+    </div>
+    <div class="col-6 col-lg-6" id="divEmer">
+      <div class="box p-3 ">
+        <div class="py-3 text-center text-lg text-primary"> Emergencia Médica </div>
+        <div class="d-flex" id="divTextEmerg"> </div>
+      </div>
+    </div>
+  </div>-->
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="box">
+        <div class="box-header">
+          <h3>Avisos</h3>
+        </div>
+        <div class="list inset scrollable hover" style="max-height: 350px" id="divAvisos"> </div>
+      </div>
+        <div class="box">
+        <div class="box-header">
+          <h3>Lista de casas</h3>
+        </div>
+        <div class="list inset scrollable hover" style="max-height: 350px" id="divCasas"> </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="box">
+        <div class="box-header">
+            <h1><a href="javascript:activarLectorPlacas()">Validar ENTRADA residentes:</a> <span id="spPlacaEncontrada"></span> </h1>
+        </div>
+        <div class="list inset scrollable hover" style="max-height: 484px" id="divUsuariosPermiti"></div>
+        <div class="box-footer" id="divBtnPermitir"></div>
+      </div>
+      <div class="box">
+          <div class="box-header">
+              <h1><a href="javascript:activarLectorPlacasSalida()">Validar SALIDA residentes:</a> <span id="spPlacaEncontradaSal"></span> </h1>
+          </div>
+          <div class="list inset scrollable hover" style="max-height: 484px" id="divUsuariosPermitiSalida"></div>
+          <div class="box-footer" id="divBtnPermitirSalida"></div>
+      </div>
+      <div class="box">
+          <div class="box-header">
+              <h3>CONTROL BARRERAS</h3>
+          </div>
+          <div class="list inset scrollable hover text-center" style=" padding: 5px" id=""><a href="javascript:controlBarrera(1); " class="md-btn md-fab mb-2 primary text-center disabled">1</a> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<a href="javascript:controlBarreraVisEn(1); " class="md-btn md-fab mb-2 warn">2</a> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<a href="javascript:controlBarreraVisSaliVig(1);" class="md-btn md-fab mb-2 green">3</a></div>
+          <div class="box-footer" id="divBtnPermitirSalida"></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="padding box">
+        <h6 class="mb-3">Proveedores</h6>
+        <div class="streamline streamline-dotted scrollable hover" style="max-height: 400px" id="divProveedores"> </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="padding box">
+        <h6 class="mb-3">Visitas</h6>
+        <div class="streamline streamline-dotted scrollable hover" style="max-height: 400px" id="divVisitas"></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="padding box scrollable hover" style="max-height: 500px">
+        <h6 class="mb-3">Eventos</h6>
+        <div class="streamline streamline-dotted" id="divEventos"> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+
+var intervalLRe = null;
+var placaEncon = "";
+var cualbarreraCierra=0;
+var btnCerraBarPres = 0;
+
+$("#divProveedores").html(' <div class="list-item " data-id="item-7"><div class="list-body"><a href="" class="item-title _500">No hay proveedores programados </a></div></div>')
+$("#divVisitas").html(' <div class="list-item " data-id="item-7"><div class="list-body"><a href="" class="item-title _500">No hay visitas programadas </a></div></div>')
+$("#divEventos").html(' <div class="list-item " data-id="item-7"><div class="list-body"><a href="" class="item-title _500">No hay eventos programados </a></div></div>')
+
+var intervalLRe = setInterval(function() {
+    actualizarBoards()
+}, 120 * 1000); 
+
+actualizaJSONfiles()
+actualizarBoards()
+function actualizarBoards(){
+    $.ajax({
+        url:"scripts/asp/adminResidencial_principal.asp",
+        dataType:"json",
+        cache:false
+    }).done(function(rest){
+         $("#divAvisos").html("")
+         $("#divCasas").html("")
+         $("#divVisitas").html("")
+         $("#divProveedores").html("")
+         $("#divEventos").html("")
+        if(rest.avisos != ""){
+            $.each(rest.avisos, function (i, item) {
+                avisHTMl = '<div class="list-item " data-id="item-'+item.id+'">\
+                          <span class="w-40 avatar circle indigo">\
+                             '+item.iniciales+'</span>\
+                          <div class="list-body">\
+                             <a href="javascript:mostrarMdDetalleAvisos('+item.id+',&#39;'+item.origen+'&#39;,&#39;'+item.destinatario+'&#39;,&#39;'+item.aviso+'&#39;,&#39;'+item.fechaHora+'&#39;)" class="item-title _500">'+item.destinatario+' <span class="badge amber pos-rlt mr-2">'+item.tipoUsuario+'</span></a>\
+                              <div class="item-except text-sm text-muted h-1x">\
+                                '+item.aviso+'\
+                              </div>\
+                            <div class="item-tag tag hide">\
+                            </div></div><div>\
+                           <span class="item-date text-xs text-muted">'+item.fechaHora+'</span></div></div>'
+                $("#divAvisos").append(avisHTMl)
+            });
+
+        }else{
+            $("#divAvisos").html(' <div class="list-item " data-id="item-7"><div class="list-body"><a href="" class="item-title _500">No hay avisos </a></div></div>')
+        }
+        if(rest.casas!=""){
+            var colors = ["red","pink","purple","deep-purple","indigo","blue","light-blue", "cyan", "teal", "green", "light-green", "lime", "yellow", "amber", "orange", "deep-orange", "brown", "blue-grey", "grey"]
+
+            $.each(rest.casas, function (i, item) {
+                badgeResi = ""
+                colorCirc = "teal"
+                if(item.noMolestar ==1){
+                    badgeResi = '<span class="badge deep-orange">NO MOLESTAR TOTAL</span>'; colorCirc ="deep-orange"
+                }
+                if(item.noMolestar ==2){
+                    var textPerm = ""
+                    switch (item.noMolCiPe){
+                        case "1":
+                            textPerm = "FAMILIA"
+                        break;
+                        case "2":
+                            textPerm = "AMIGOS"
+                        break;
+                        case "3":
+                            textPerm = "SERVICIO"
+                        break;
+                    }
+                    badgeResi = '<span class="badge amber">no molestar parcial circulo permitido: '+textPerm+'</span>'; colorCirc ="warning"
+                }
+                if(item.bloqueRes ==1){ badgeResi = '<span class="badge red">BLOQUEO</span>'; colorCirc ="red"}
+                casass = '<div class="list-item " data-id="item-8"> <span class="w-40 avatar circle '+colorCirc+'"><i class="on b-white avatar-right"></i>\
+                         '+item.iniciales+'\
+                            </span>\
+                            <div class="list-body"><a href="" class="item-title _500">\
+                    '+item.domicilio+' \
+                            </a>\
+                                <div class="item-except text-sm text-muted h-1x">\
+                        '+item.telefono+' \
+                                </div> <div class="item-tag tag "> '+badgeResi+'</div></div></div>'
+                $("#divCasas").append(casass)
+            });
+
+
+        }else{
+            $("#divCasas").html(' <div class="list-item " data-id="item-7"><div class="list-body"><a href="" class="item-title _500">No hay casas registradas </a></div></div>')
+        }
+
+        var vistaHTMl = "", prvvHTMl = "", coloRl="", eventsHTML="";
+        $.each(rest.visitas, function (i, item) {
+            var textPlac = "", textVei ="",noMolestarAct="";
+            if (item.placa!=""){
+                textPlac = "placa: "+item.placa
+            }
+            if(item.vehiculo=="Si"){
+                textVei = " con vehículo "
+            }
+            if(coloRl == 'primary') coloRl = 'success'; else  coloRl = 'primary';
+            var enableLink = 'marcarEntrada('+item.id+',1,&#39;'+item.nombre+'&#39;,0,&#39;'+item.placa+'&#39;,&#39;'+item.fecha_programada+'&#39;,'+item.id_user+')'
+            if (item.no_molestar>0){
+                var noMolestarAct = " text-muted "
+                var textNomolAler = ""
+                if (item.no_molestar==1){textNomolAler = "NO MOLESTAR TOTAL ACTIVO"}
+                if (item.no_molestar==2){textNomolAler = "No molestar parcial activo"}
+                enableLink = 'alert(&#39;'+textNomolAler+'&#39;)'
+            }
+            vistaHTMl += '<div class="sl-item  b-'+coloRl+' '+noMolestarAct+'">\
+                        <div class="sl-content"> <span class="sl-date text-muted">'+item.fecha_entrada+'</span><br><span class="badge amber pos-rlt mr-2">'+item.nombreUsuario+'</span>\
+                        <div> <a href="javascript:'+enableLink+'" class="text-primary">'+item.nombre+'</a><br>\
+                        '+textVei+""+textPlac+' </div></div></div>'
+        });
+        $("#divVisitas").html(vistaHTMl)
+
+        $.each(rest.proveedores, function (i, item) {
+            var textPlac = "", textVei ="",noMolestarAct="";
+            if (item.placa!=""){
+                textPlac = "placa: "+item.placa
+            }
+            if(item.vehiculo=="Si"){
+                textVei = " con vehículo "
+            }
+            if(coloRl == 'warning') coloRl = 'info'; else  coloRl = 'warning';
+
+            var enableLink = 'marcarEntrada('+item.id+',2,&#39;'+item.nombre+'&#39;,0,&#39;'+item.placa+'&#39;,&#39;'+item.fecha_programada+'&#39;,'+item.id_user+')'
+            if (item.no_molestar>0){
+                var noMolestarAct = " text-muted "
+                var textNomolAler = ""
+                if (item.no_molestar==1){textNomolAler = "NO MOLESTAR TOTAL ACTIVO"}
+                if (item.no_molestar==2){textNomolAler = "No molestar parcial activo"}
+                enableLink = 'alert(&#39;'+textNomolAler+'&#39;)'
+            }
+
+            prvvHTMl += '<div class="sl-item  b-'+coloRl+' '+noMolestarAct+'">\
+                        <div class="sl-content"> <span class="sl-date text-muted">'+item.fecha_entrada+'</span><br><span class="badge amber pos-rlt mr-2">'+item.nombreUsuario+'</span>\
+                        <div> <a href="javascript:'+enableLink+'" class="text-primary">'+item.nombre+'</a><br>\
+                        '+textVei+""+textPlac+' </div></div></div>'
+        });
+        $("#divProveedores").html(prvvHTMl)
+
+        $.each(rest.eventos, function (i, item) {
+            if(coloRl == 'warning') coloRl = 'info'; else  coloRl = 'warning';
+            var reserva = "";
+
+
+            eventsHTML += '<div class="sl-item  b-"><div class="sl-left">\
+                <img src="assets/images/a'+(i)+'.jpg" class="circle" alt="."> </div>\
+                <div class="sl-content"> <span class="sl-date text-muted">'+item.fecha_evento+' '+item.horario+'</span><div><div><span class="badge amber pos-rlt mr-2">'+item.nombreUsuario+'</span></div> \
+                <span class="text-primary">'+item.nombre+'</span> <br>'+item.lugar+' <br/> <a  class="text-primary"  href="javascript:verListaInvitados('+item.id+','+item.idUsrr+')">invitados: '+item.invitados+'</a></div></div></div>'
+        });
+        $("#divEventos").html(eventsHTML)
+    })
+}
+var actiLectPll = 1
+function activarLectorPlacas(){
+  if (actiLectPll == 1){
+    valPlacasEntrada()
+  }
+  // $.ajax({
+  //     url:"http://localhost/actualizaJSONfiles.php",
+  //     cache:false
+  // }).done(function(rest){
+  //     //validarPlaca
+  // }).fail(function(){
+  //         console.log("error209dkkf30dkk9")
+  // })
+}
+
+function valPlacasEntrada(){
+  actiLectPll = 0
+  $.ajax({
+      url:"http://localhost/validatePlate.php",
+      cache:false
+  }).done(function(rest){
+      actiLectPll = 1
+      if(rest!=""){
+          rest = rest.slice(-12);
+          tipo = rest.split(",")[0]
+          placaEnconTR = $.trim(String(rest.split(",")[1]))
+
+          switch (parseInt(tipo)){
+              case 1: //Encontrada con acceso permitido
+                  llamarPersonasPermitidas(placaEnconTR,1);
+                  controlSemaforo(1) // enciende VERDE
+                  $("#divBtnPermitir").html('<a href="javascript:validarVigilante(1)" class="btn btn-fw success">PERMITIR ACCESO</a>')
+                  break;
+              case 2: //Encontrada SIN ACCESSO
+                  alert("Persona bloqueada por el administrador, avisar al residente.")
+                  llamarPersonasPermitidas(placaEnconTR,1);
+                  controlSemaforo(3) // enciende ROJO y VERDE, agregar tiempo de rojo y verde para que se apagen los dos después de un tiempo
+                  $("#divBtnPermitir").html('<a href="javascript:validarVigilante(1)" class="btn btn-fw red">¿PERMITIR ACCESO?</a>')
+                  break;
+              case 3: //NO ENCONTRADA
+                  noEncontradaPlaca(placaEnconTR,1)
+                  controlSemaforo(2) // enciende ROJO, agregar tiempo de rojo para que se apaguen los dos después de un tiempo.
+                  $("#divBtnPermitir").html('<a href="javascript:validarVigilante(1)" class="btn btn-fw red">¿PERMITIR ACCESO?</a>')
+                  break;
+          }
+      }
+  })
+}
+
+function activarLectorPlacasSalida(){
+  if (actiLectPll == 1){
+    valPlacasSalida()
+  }
+  // $.ajax({
+  //     url:"http://localhost/actualizaJSONfiles.php",
+  //     cache:false
+  // }).done(function(rest){
+      
+  // })
+}
+
+function valPlacasSalida(){
+  actiLectPll = 0
+  $.ajax({
+      url:"http://localhost/validatePlateSalida.php",
+      cache:false
+  }).done(function(rest){
+      actiLectPll = 1 
+      if(rest!=""){
+          rest = rest.slice(-12);
+          tipo = rest.split(",")[0]
+          placaEnconTR = $.trim(String(rest.split(",")[1]))
+
+          switch (parseInt(tipo)){
+              case 1: //Encontrada con acceso permitido
+                  llamarPersonasPermitidas(placaEnconTR,2);
+                  controlSemaforoSalida(1) // enciende VERDE
+                  $("#divBtnPermitirSalida").html('<a href="javascript:validarVigilante(2)" class="btn btn-fw success">PERMITIR ACCESO</a>')
+                  break;
+              case 2: //Encontrada SIN ACCESSO
+                  alert("Persona bloqueada por el administrador, avisar al residente.")
+                  llamarPersonasPermitidas(placaEnconTR,2);
+                  controlSemaforoSalida(3) // enciende ROJO y VERDE, agregar tiempo de rojo y verde para que se apagen los dos después de un tiempo
+                  $("#divBtnPermitirSalida").html('<a href="javascript:validarVigilante(2)" class="btn btn-fw red">¿PERMITIR ACCESO?</a>')
+                  break;
+              case 3: //NO ENCONTRADA
+                  noEncontradaPlaca(placaEnconTR,2)
+                  controlSemaforoSalida(2) // enciende ROJO, agregar tiempo de rojo para que se apaguen los dos después de un tiempo.
+                  $("#divBtnPermitirSalida").html('<a href="javascript:validarVigilante(2)" class="btn btn-fw red">¿PERMITIR ACCESO?</a>')
+                  break;
+          }
+      }
+  })
+}
+var presionoBoton = 0
+function controlBarreraVisSaliVig(abrioCer){
+  if(presionoBoton==0){
+    presionoBoton = 1
+    $.ajax({
+        url:"http://192.168.14.10/salida_controlGate.php",
+        method:"POST",
+        data:{openClose:abrioCer}
+    }).fail(function(){
+        presionoBoton = 0
+        if(parseInt(abrioCer)==1){
+            btnCerraBarPres = 1
+            cualbarreraCierra = 3
+            
+            $('#m-a-f').modal({backdrop: 'static',keyboard: false})
+            //alert("Enter para cerrar barrera")
+            //controlBarreraVisSaliVig(2)
+        }else{
+            //ver('usuarioVigilante_entrada_salida','content')
+            //alert("Barrera Cerrada")
+        }
+    })
+  }
+}
+
+function llamarPersonasPermitidas(placaEncon,cualEnSal){
+    $.ajax({
+        url:"scripts/asp/usuarioVigilante_principalPersonasPermitidas.asp",
+        cache:false,
+        dataType:"json",
+        data: {placaReg:placaEncon},
+        method:"POST"
+    }).done(function(restInfer){
+        var restP = ""
+        $("#divUsuariosPermiti").html(restP)
+        $("#spPlacaEncontrada").html(restP)
+        $("#spPlacaEncontradaSal").html(restP)
+        $("#divUsuariosPermitiSalida").html(restP)
+        $.each(restInfer, function(i,item){
+            restP += '<div class="list-item " data-id="item-'+i+'">\
+              <span class=" avatar w-128">\
+                  <img src="img_residenciales/losencinos/familia/'+item.imagen+'" width="100px" >\
+              </span>\
+              <div class="list-body">\
+                 <a href="" class="item-title _500">'+item.nombre+'<span class="badge amber pos-rlt mr-2"></span></a>\
+                  <div class="item-except text-sm text-muted h-1x">\
+                    '+item.domicilio+'\
+                  </div>\
+                <div class="item-tag tag hide">\
+                </div>\
+              </div>\
+            </div>'
+        });
+        if(restP==""){
+            restP = '<div class="list-item " data-id="item-">\
+              <div class="list-body">\
+                 <a href="" class="item-title _500">AUTO ENCONTRADO PERO NO TIENE PERSONAS REGISTRADAS</a>\
+              </div>\
+            </div>'
+        }
+        if (cualEnSal==1){
+            $("#divUsuariosPermiti").html(restP)
+            $("#spPlacaEncontrada").text(placaEncon)
+        }else{
+            $("#divUsuariosPermitiSalida").html(restP)
+            $("#spPlacaEncontradaSal").text(placaEncon)
+        }
+    })
+
+}
+
+function noEncontradaPlaca(placEncc, cualEnSal2){
+    noEncontradaDiv = '<div class="list-item " data-id="item-">\
+              <span class=" avatar w-128">\
+                  <img src="img/placaNoEncontrada.jpg" width="100px" >\
+              </span>\
+              <div class="list-body">\
+                 <a href="" class="item-title _500">PlACA NO REGISTRADA<span class="badge amber pos-rlt mr-2"></span></a>\
+                <div class="item-tag tag hide">\
+                </div>\
+              </div>\
+            </div>'
+    if (cualEnSal2==1){
+        $("#divUsuariosPermiti").html(noEncontradaDiv)
+        $("#spPlacaEncontrada").text(placaEncon)
+    }else{
+        $("#divUsuariosPermitiSalida").html(noEncontradaDiv)
+        $("#spPlacaEncontradaSal").text(placaEncon)
+    }
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+var idRegAgPAS =0, tipoVPPAS=0, nombreProvPAS="",  invtListPAS=0, placaRegREgPAS="";
+function marcarEntrada(idRegAg, tipoVP, nombreProv, invtList, placaRegREg, fechaProgra){
+    var dateAcutal = new Date();
+    dateAcutal.setDate(dateAcutal.getDate());
+
+    yearD = parseInt(fechaProgra.split(".")[0])
+    monthD = parseInt(fechaProgra.split(".")[1])-1
+    dayD = parseInt(fechaProgra.split(".")[2])
+    var dateRegis = new Date(yearD,monthD,dayD,00,00,00);
+    if(dateRegis>dateAcutal){
+       alert("No puede registrar una entrada mayor al día de hoy.")
+    }else{
+        idRegAgPAS = idRegAg
+        tipoVPPAS = tipoVP
+        nombreProvPAS = nombreProv
+        invtListPAS = invtList
+        placaRegREgPAS = placaRegREg
+        $("#txtPlacasRegEntra").val(placaRegREg)
+        $("#mOdMarcarEntrada").modal("show")
+        $("#nomAccess").text(nombreProv)
+    }
+}
+var soloSiEntro = 0
+$("#btnRegistrarEntrada").click(function(){
+    $("#divButtons button").attr("disabled","disabled")
+    var varPlacas = $("#txtPlacasRegEntra").val()
+    $.post("scripts/asp/usuarioVigilante_entradaGuardar.asp",{idregAg:idRegAgPAS, cboTipoIngreso:tipoVPPAS, txtNombre:nombreProvPAS,tipoEvento:"marcarAgIngreso", txtPlacas:varPlacas,idInvtList:invtListPAS},function(rest){
+
+        $("#divButtons button").removeAttr("disabled")
+		if(rest=="ok"){
+			alert("Se guardo correctamente")
+             soloSiEntro = 1
+            $("#mOdMarcarEntrada").modal("hide")
+		}
+        controlBarreraVisEn(1)
+
+	})
+})
+function controlBarrera(abrioCer){
+  if(presionoBoton==0){
+    presionoBoton = 1
+      $.ajax({
+          url:"http://192.168.14.10/controlGate.php",
+          method:"POST",
+          data:{openClose:abrioCer}
+      }).fail(function(){
+          presionoBoton = 0
+          if(parseInt(abrioCer)==1){
+              btnCerraBarPres =1
+              cualbarreraCierra = 1
+              
+              $('#m-a-f').modal({backdrop: 'static',keyboard: false})
+              //alert("Enter para cerrar barrera")
+              //controlBarrera(2)
+          }else{
+              //alert("Barrera Cerrada")
+          }
+      })
+    }
+}
+function controlBarreraVisEn(abrioCer){
+  if(presionoBoton==0){
+    presionoBoton = 1
+    $.ajax({
+        url:"http://192.168.14.10/visitasEntrada_controlGate.php",
+        method:"POST",
+        data:{openClose:abrioCer}
+    }).fail(function(){
+      presionoBoton = 0
+      if(parseInt(abrioCer)==1){
+          btnCerraBarPres = 1
+          cualbarreraCierra = 2
+          
+          $('#m-a-f').modal({backdrop: 'static',keyboard: false})
+          //alert("Enter para cerrar barrera")
+          //controlBarreraVisEn(2)
+      }else{
+          //alert("Barrera Cerrada")
+      }
+    })
+  }
+}
+
+$("#btnCerrarBarrera").click(function(){
+  if(btnCerraBarPres==1){
+    $("#m-a-f").modal("hide")
+    switch(cualbarreraCierra){
+      case 1:
+        controlBarrera(2)
+      break;    
+      case 2:
+        controlBarreraVisEn(2)
+      break;   
+      case 3:
+        controlBarreraVisSaliVig(2)
+      break;
+    }
+    cualbarreraCierra = 0
+    btnCerraBarPres = 0
+  }
+})
+function controlSemaforo(oC){
+    urlLe = ""
+    if(oC==1){
+        urlLe ="http://192.168.14.10/prenderVerde.php"
+    }
+    if (oC==2){
+        urlLe = "http://192.168.14.10/prenderRojo.php"
+    }
+    if (oC==3){
+        urlLe = "http://192.168.14.10/prenderFull.php"
+    }
+    $.ajax({
+        url:urlLe,
+        method:"GET"
+    }).done(function(){
+
+    })
+}
+function controlSemaforoSalida(oC){
+    urlLe = ""
+    if(oC==1){
+        urlLe ="http://192.168.14.10/ResidentesSalida_prenderVerde.php"
+    }
+    if (oC==2){
+        urlLe = "http://192.168.14.10/ResidentesSalida_prenderRojo.php"
+    }
+    if (oC==3){
+        urlLe = "http://192.168.14.10/ResidentesSalida_encenderFull.php"
+    }
+    $.ajax({
+        url:urlLe,
+        method:"GET"
+    }).done(function(){
+
+    })
+}
+function validarVigilante(cualSalEntr){
+  if(cualSalEntr==1){
+      controlBarrera(1)
+      $("#divUsuariosPermiti").html("")
+      $("#spPlacaEncontrada").text("")
+      $("#divBtnPermitir").html("")
+  }else{
+      controlBarreraVisSaliVig(1)
+      $("#divUsuariosPermitiSalida").html("")
+      $("#spPlacaEncontradaSal").text("")
+      $("#divBtnPermitirSalida").html("")
+  }
+    //se desabilita la validación del vigilante para huella                 
+    // $.ajax({
+    //     url:"http://localhost/validateVigilante.php",
+    //     cache:false
+    // }).done(function(rest){
+    //     if (rest!=""){
+    //         tipo = rest.split(",")[0]
+    //         nombre = rest.split(",")[1]
+    //         switch(parseInt(tipo)){
+    //             case 1:
+    //                 alert("Quien permite el acceso: "+nombre)
+    //                 if(cualSalEntr==1){
+    //                     controlBarrera(1)
+    //                     $("#divUsuariosPermiti").html("")
+    //                     $("#spPlacaEncontrada").text("")
+    //                     $("#divBtnPermitir").html("")
+    //                 }else{
+    //                     controlBarreraVisSaliVig(1)
+    //                     $("#divUsuariosPermitiSalida").html("")
+    //                     $("#spPlacaEncontradaSal").text("")
+    //                     $("#divBtnPermitirSalida").html("")
+    //                 }
+    //                 break;
+    //             case 2:
+    //                 alert("Huella no coincide intente nuevamente")
+    //                 break;
+    //             case 3:
+    //                 alert("Tiempo excedido de lectura, intente nuevamente")
+    //                 break;
+    //         }
+    //     }
+    // })
+}
+function verListaInvitados(idEventList,idUsrrList){
+    $.post("scripts/asp/usuarioDueno_fiestas_invitados.asp",{idEvent:idEventList,idUsr:idUsrrList}, function(restT){
+        var tblinfo = "",nombreEvent =""
+        $.each(restT.data, function(i,item){
+            idRegccc = item.id+'|'+item.nombre+'|'+item.placa+'|'+item.fecha_evento
+            if(item.llegada!=''){
+                idRegccc = ""
+            }
+            tblinfo += '<tr data-dismiss="modal" id="'+idRegccc+'"><td>'+item.nombre+'</td><td>'+item.placa+'</td><td>'+item.llegada+'</td></tr>'
+            nombreEvent = item.evento
+        })
+        $("#m .modal-title").text("Lista de invitados "+nombreEvent)
+        $("#tblInvitados tbody").html(tblinfo)
+        $("#tblInvitados tbody tr").click(function(){
+            if ($(this).get(0).id != ""){
+                var idTblLInk = $(this).get(0).id
+                var idReg = idTblLInk.split('|')[0]
+                var nombreReg = idTblLInk.split('|')[1]
+                var placaReg = idTblLInk.split('|')[2]
+                var fechaEvn = idTblLInk.split('|')[3]
+                $('#m').modal('hide')
+                marcarEntrada(0, 4, nombreReg,idReg,placaReg,fechaEvn)
+            }
+
+        })
+        $('#m').modal('show')
+    },"json")
+}
+$("#mOdMarcarEntrada").on("hidden.bs.modal", function () {
+    if (soloSiEntro == 1){
+        soloSiEntro = 0
+        pageActual = ""
+        ver('usuarioVigilante_entrada_salida','content')
+    }
+})
+function actualizaJSONfiles(){
+   $.ajax({
+        url:"http://localhost/actualizaJSONfiles.php",
+        cache:false
+    }).done(function(rest){
+
+    })
+}
+</script>
+
+ <script src="../libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- core -->
+  <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/ajax.js"></script>
+  <script src="scripts/app.js"></script>
